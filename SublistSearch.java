@@ -2,7 +2,7 @@ package com.java;
 
 public class SublistSearch
 {
-  boolean findList(Node first, Node second)
+  static boolean findList(Node first, Node second)
   {
     Node ptr1 = first;
     Node ptr2 = second;
@@ -36,11 +36,17 @@ public class SublistSearch
           break;
         }
       }
-      return false;
+      if(ptr1== null)
+      {
+          return true;
+      }
+      ptr1 = first;
+      second = second.next;
     }
+    return false;
   }
   
-  void printList(Node node)
+  static void printList(Node node)
   {
     while(node!= null)
     {
@@ -49,9 +55,9 @@ public class SublistSearch
     }
   }
   
-  Node newNode(int key)
+  static Node newNode(int key)
   {
-    Node temp = new Node;
+    Node temp = new Node();
     temp.data = key;
     temp.next = null;
     return temp;
@@ -71,7 +77,14 @@ public class SublistSearch
     b.next.next.next.next = newNode(3);
     b.next.next.next.next.next = newNode(4);
     
-    findList(a,b)?System.out.println("List Found"):System.out.println("List not found");
-  }
+    if(findList(a,b))
+    {
+        System.out.println("List Found");
+    }
+    else
+    {
+        System.out.println("List not found");
+    }
+  }    
 }
       
