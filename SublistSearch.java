@@ -1,5 +1,3 @@
-package com.java;
-
 public class SublistSearch
 {
   static boolean findList(Node first, Node second)
@@ -46,13 +44,14 @@ public class SublistSearch
     return false;
   }
   
-  static void printList(Node node)
+  void printList(Node node)
   {
     while(node!= null)
     {
-      System.out.println(node.data);
+      System.out.print(node.data+" ");
       node = node.next;
     }
+    System.out.println();
   }
   
   static Node newNode(int key)
@@ -69,6 +68,7 @@ public class SublistSearch
     a.next = newNode(2);
     a.next.next = newNode(3);
     a.next.next.next = newNode(4);
+    a.next.next.next.next = newNode(5);
     
     Node b = newNode(1);
     b.next = newNode(2);
@@ -76,6 +76,10 @@ public class SublistSearch
     b.next.next.next = newNode(2);
     b.next.next.next.next = newNode(3);
     b.next.next.next.next.next = newNode(4);
+    
+    SublistSearch s = new SublistSearch();
+    s.printList(a);
+    s.printList(b);
     
     if(findList(a,b))
     {
@@ -87,4 +91,3 @@ public class SublistSearch
     }
   }    
 }
-      
